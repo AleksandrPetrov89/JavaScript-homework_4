@@ -23,3 +23,25 @@ function getPasswordChecker (password) {
 
 
 getPasswordChecker("admin");
+
+
+// function getPasswordChecker (password) {
+//     rl.question("Введите пароль:\n", (check) => {
+//         let result = password === check;
+//         if (check === "q") {
+//             console.log("Операция прервана пользователем!\n");
+//         } else if (result) {
+//             console.log("Вы ввели правильный пароль!\n");
+            
+//         } else if (!result) {
+//             console.log("Вы ошиблись!\n");    
+//         } else {
+//             console.log("Какая-то непонятная ошибка!\n");    
+//         };
+//         rl.close();
+//         return result;
+//     });
+// };
+
+
+// getPasswordChecker("0000");
