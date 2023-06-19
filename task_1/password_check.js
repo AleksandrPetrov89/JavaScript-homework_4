@@ -1,47 +1,20 @@
-const rl = require('readline').createInterface(process.stdin, process.stdout);
-
 function getPasswordChecker (password) {
-    rl.question("Введите пароль:\n", (check) => {
-        let result = password === check;
-        if (check === "q") {
-            console.log("Операция прервана пользователем!\n");
-            rl.close();
-            return;
-        };
-        if (result) {
-            console.log("Вы ввели правильный пароль!\n");
-            rl.close();
-            return result;
-        } else if (!result) {
-            console.log("Вы ошиблись!\n");    
-        } else {
-            console.log("Какая-то непонятная ошибка!\n");    
-        };
-        getPasswordChecker(password);
-    });
+    return check => {
+        return password == check;
+    };
 };
 
 
-getPasswordChecker("admin");
+console.log("Строковый пароль:");
+const password_1 = getPasswordChecker("admin");
+console.log(password_1("azg"));
+console.log(password_1("admin"));
+console.log(password_1(45154));
 
-
-// function getPasswordChecker (password) {
-//     rl.question("Введите пароль:\n", (check) => {
-//         let result = password === check;
-//         if (check === "q") {
-//             console.log("Операция прервана пользователем!\n");
-//         } else if (result) {
-//             console.log("Вы ввели правильный пароль!\n");
-            
-//         } else if (!result) {
-//             console.log("Вы ошиблись!\n");    
-//         } else {
-//             console.log("Какая-то непонятная ошибка!\n");    
-//         };
-//         rl.close();
-//         return result;
-//     });
-// };
-
-
-// getPasswordChecker("0000");
+console.log("Числовой пароль:");
+const password_2 = getPasswordChecker(1234);
+console.log(password_2("azg"));
+console.log(password_2("admin"));
+console.log(password_2(45154));
+console.log(password_2(1234));
+console.log(password_2("1234"));
